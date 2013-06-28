@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="popup.js"></script>
+  <style type="text/css">
+    .vsection{
+      float: left;
+      width: 300px;
+      margin-left: 10px;
+      border-right: dotted thin;
+      padding-right: 10px;
+    }
+    .bulletNotDone{
+      list-style-image: url(images/bullet_tick.png);
+    }
+    .sourceName{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#config" id='openConfig' style='margin-left: 10px;'>Config</a>
+<div id='configSection' style='display: none; margin-left: 10px;'>
+  Login <input id='login'>
+  &nbsp;&nbsp;&nbsp;
+  Password <input id='password' type='password'>
+  <button id='saveConfigBtn'>Save</button>
+  <hr>
+</div>
+<div>
+  <div class="vsection" id="gartnerSection">
+    <div class="visitingPagesMessage">
+      <h3 class="mainTitle">
+          <span class='sourceName'>Gartner: </span>
+          <span class="progressMsg">Loading...</span>
+        <span class="progressCtr"></span>
+      </h3>
+      <ul class="visitedDocList"></ul>
+    </div>
+  </div>  
+  <div class="vsection" id="forresterSection">
+    <div class="visitingPagesMessage">
+      <h3 class="mainTitle">
+        <span class='sourceName'>Forrester: </span>
+        <span class="progressMsg">Loading...</span>
+        <span class="progressCtr"></span>
+      </h3>
+      <ul class="visitedDocList"></ul>
+    </div>
+  </div>  
+  <div class="vsection" id="cutterSection">
+    <div class="visitingPagesMessage">
+      <h3 class="mainTitle">
+        <span class='sourceName'>Cutter: </span>
+        <span class="progressMsg">Loading...</span>
+        <span class="progressCtr"></span>
+      </h3>
+      <ul class="visitedDocList"></ul>
+    </div>
+  </div>  
+</div>
+
+
+
+
+<div id="iFrames" style="display: none;"></div>
+
+<audio id="doneSound">
+   <source src="done.ogg" type='audio/ogg; codecs="vorbis"'>
+</audio>
+<audio id="doneAllSound">
+   <source src="doneAll.ogg" type='audio/ogg; codecs="vorbis"'>
+</audio>
+
+
+
+</body>
+</html>
