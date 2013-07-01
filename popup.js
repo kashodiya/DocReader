@@ -1,4 +1,5 @@
 var config = { login: '', password: ''};
+var openTabs = [];
 openSites();
 
 function openSites(){
@@ -8,7 +9,9 @@ function openSites(){
 }
 
 function openTab(url){
-  chrome.tabs.create({ url: url, active: false });
+  chrome.tabs.create({ url: url, active: false }, function(tab){
+    openTabs.push(tab.id);
+  });
 }
 
 function doInCurrentTab(tabCallback) {
@@ -26,6 +29,14 @@ function openDocs(links, sectionName){
 
 jQuery(function(){
   restoreConfigValues();
+  
+  jQuery("#closeAll").click(function(){
+    chrome.tabs.remove(openTabs);
+    doInCurrentTab(function(tab){
+      chrome.tabs.remove(tab.id);
+    });
+  });
+
   jQuery("#openConfig").click(function(){
     //console.log('Show');
     if(jQuery('#configSection').is(":visible")){
